@@ -39,8 +39,8 @@ public class YoutubeCount {
         JavaRDD<String> words = tags.flatMap (tag -> Arrays.asList (tag
                 .toLowerCase ()
                 .trim ()
-                .replaceAll ("\\p{Punct}", " ")
-               .split (" ")).iterator ());
+                
+               .split ("\\|")).iterator ());
         System.out.println(words.toString ());
         // COUNTING
         Map<String, Long> wordCounts = words.countByValue ();
